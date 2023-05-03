@@ -21,8 +21,8 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splashactivity);
 
-        ImageView gifImageView = findViewById(R.id.gifKMP);
-        Glide.with(this).load(R.raw.kmp).into(gifImageView);
+//        ImageView gifImageView = findViewById(R.id.gifquiz);
+//        Glide.with(this).load(R.raw.gifquiz).into(gifImageView);
 
         new Handler().postDelayed(new Runnable() {
 

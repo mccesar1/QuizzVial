@@ -29,88 +29,8 @@
                 android:drawableLeft="@drawable/subtopic"
                 android:textSize="18dp"
                 android:backgroundTint="#2271b3"
-                android:text="Análisis de Sistemas
-de Software" />
+                android:text="Iniciar examen" />
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="2dp"
-                android:onClick="buttonClick"
-                android:backgroundTint="#2271b3"
-                android:textColor="@color/white"
-                android:drawableLeft="@drawable/subtopic"
-                android:textStyle="bold"
-                android:textSize="18dp"
-                android:text="Diseño de Sistemas
-de Software" />
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginEnd="5dp"
-                android:drawableLeft="@drawable/subtopic"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="18dp"
-                android:layout_marginBottom="2dp"
-                android:onClick="buttonClick"
-                android:backgroundTint="#2271b3"
-                android:text="Desarrollo de Sistemas
-de Software" />
-
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="2dp"
-                android:drawableLeft="@drawable/subtopic"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="2dp"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="18dp"
-                android:onClick="buttonClick"
-                android:backgroundTint="#2271b3"
-                android:text="Gestión de Proyectos
-de Software" />
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginEnd="5dp"
-                android:drawableLeft="@drawable/subtopic"
-                android:layout_marginBottom="2dp"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="18dp"
-                android:onClick="buttonClick"
-                android:backgroundTint="#2271b3"
-                android:text="Comprensión lectora" />
-            <Button
-                android:id="@+id/button6"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="2dp"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:drawableLeft="@drawable/subtopic"
-                android:textSize="18dp"
-                android:onClick="buttonClick"
-                android:backgroundTint="#2271b3"
-                android:text="Redacción indirecta" />
 
 
 

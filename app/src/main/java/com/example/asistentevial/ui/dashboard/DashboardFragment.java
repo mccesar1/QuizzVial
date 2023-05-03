@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.asistentevial.R;
 import com.example.asistentevial.databinding.FragmentDashboardBinding;
+import com.example.asistentevial.ui.Preguntas.PreguntasActivity;
 import com.example.asistentevial.ui.Subtemas.subtemas;
 import com.example.asistentevial.ui.Subtemas.subtemas2;
 import com.example.asistentevial.ui.Subtemas.subtemas3;
@@ -39,71 +40,20 @@ public class DashboardFragment extends Fragment {
 
 
         Button1 = root.findViewById(R.id.button1);
-        Button2 = root.findViewById(R.id.button2);
-        Button3 = root.findViewById(R.id.button3);
-        Button4 = root.findViewById(R.id.button4);
-        Button5 = root.findViewById(R.id.button5);
-        Button6 = root.findViewById(R.id.button6);
+
 
         Button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 //abrir nueva actividad con varios botones para seleccionar el tipo de reporte
-                Intent intent = new Intent(getActivity(), subtemas.class);
+                Intent intent = new Intent(getActivity(), PreguntasActivity.class);
+                intent.putExtra("BOTON_PRESIONADO", 1);
                 startActivity(intent);
             }
         });
 
-    Button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                //abrir nueva actividad con varios botones para seleccionar el tipo de reporte
-                Intent intent = new Intent(getActivity(), subtemas2.class);
-                startActivity(intent);
-            }
-        });
-
-    Button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                //abrir nueva actividad con varios botones para seleccionar el tipo de reporte
-                Intent intent = new Intent(getActivity(), subtemas3.class);
-                startActivity(intent);
-            }
-        });
-
-    Button4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                //abrir nueva actividad con varios botones para seleccionar el tipo de reporte
-                Intent intent = new Intent(getActivity(), subtemas4.class);
-                startActivity(intent);
-            }
-        });
-
-    Button5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                //abrir nueva actividad con varios botones para seleccionar el tipo de reporte
-                Intent intent = new Intent(getActivity(), subtemas5.class);
-                startActivity(intent);
-            }
-        });
-
-    Button6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                //abrir nueva actividad con varios botones para seleccionar el tipo de reporte
-                Intent intent = new Intent(getActivity(), subtemas6.class);
-                startActivity(intent);
-            }
-        });
 
 
         return root;

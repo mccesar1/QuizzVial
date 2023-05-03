@@ -37,8 +37,8 @@
             <ImageView
                 android:layout_width="300dp"
                 android:layout_height="90dp"
-                android:src="@drawable/welcome"
-                android:scaleType="fitCenter"
+                android:src="@drawable/bienvenido"
+                android:scaleType="centerCrop"
                 android:layout_gravity="center"
                 />
 
