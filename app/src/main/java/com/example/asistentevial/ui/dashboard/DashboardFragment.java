@@ -20,6 +20,7 @@ import com.example.asistentevial.ui.Subtemas.subtemas3;
 import com.example.asistentevial.ui.Subtemas.subtemas4;
 import com.example.asistentevial.ui.Subtemas.subtemas5;
 import com.example.asistentevial.ui.Subtemas.subtemas6;
+import com.example.asistentevial.ui.requisitos.Requisitos;
 
 public class DashboardFragment extends Fragment {
 
@@ -27,10 +28,7 @@ public class DashboardFragment extends Fragment {
 
     private Button Button1;
     private Button Button2;
-    private Button Button3;
-    private Button Button4;
-    private Button Button5;
-    private Button Button6;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         DashboardViewModel dashboardViewModel = new ViewModelProvider(this).get(DashboardViewModel.class);
@@ -40,6 +38,7 @@ public class DashboardFragment extends Fragment {
 
 
         Button1 = root.findViewById(R.id.button1);
+        Button2 = root.findViewById(R.id.button2);
 
 
         Button1.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +51,16 @@ public class DashboardFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        Button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                //abrir nueva actividad con varios botones para seleccionar el tipo de reporte
+                Intent intent = new Intent(getActivity(), Requisitos.class);
+                intent.putExtra("BOTON_PRESIONADO", 2);
+                startActivity(intent);
+            }
+        });
 
 
 

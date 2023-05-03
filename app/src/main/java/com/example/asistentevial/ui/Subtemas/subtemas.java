@@ -107,4 +107,22 @@ public class subtemas extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        // Navegar hacia el fragmento DashboardFragment
+        NavController navController = Navigation.findNavController(subtemas.this, R.id.nav_host_fragment_activity_main);
+        navController.navigate(R.id.navigation_dashboard);
+        finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Navegar hacia el fragmento DashboardFragment
+        NavController navController = Navigation.findNavController(subtemas.this, R.id.nav_host_fragment_activity_main);
+        navController.navigate(R.id.navigation_dashboard);
+        finish();
+    }
 }
