@@ -3,6 +3,7 @@ package com.example.asistentevial.ui.requisitos;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -12,6 +13,8 @@ import com.example.asistentevial.R;
 import com.example.asistentevial.ui.Subtemas.subtemas;
 
 public class Requisitos extends AppCompatActivity {
+
+    private Button btnVolver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,24 +29,20 @@ public class Requisitos extends AppCompatActivity {
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
-    }
 
-    @Override
-    public void onBackPressed() {
-        //super.onBackPressed();
-        // Navegar hacia el fragmento DashboardFragment
-        NavController navController = Navigation.findNavController(Requisitos.this, R.id.nav_host_fragment_activity_main);
-        navController.navigate(R.id.navigation_dashboard);
-        finish();
-    }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        // Navegar hacia el fragmento DashboardFragment
-        NavController navController = Navigation.findNavController(Requisitos.this, R.id.nav_host_fragment_activity_main);
-        navController.navigate(R.id.navigation_dashboard);
-        finish();
+        btnVolver = findViewById(R.id.btnVolver);
+        btnVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //cerrar la actividad actual
+
+                // Navegar hacia el fragmento DashboardFragment
+                NavController navController = Navigation.findNavController(Requisitos.this, R.id.nav_host_fragment_activity_main);
+                navController.navigate(R.id.navigation_dashboard);
+                finish();
+            }
+        });
     }
 
 }

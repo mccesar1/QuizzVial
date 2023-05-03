@@ -26,9 +26,6 @@ public class subtemas extends AppCompatActivity {
     Button button3;
     Button btnVolver;
 
-    private BottomNavigationView bottomNavigationView;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -43,13 +40,11 @@ public class subtemas extends AppCompatActivity {
         int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
 
-
         // Busca el botón por su id
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
         btnVolver = findViewById(R.id.btnVolver);
-
 
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +57,6 @@ public class subtemas extends AppCompatActivity {
                 finish();
             }
         });
-
         // Agrega un listener al botón
         button1.setOnClickListener(new View.OnClickListener() {
             @Override

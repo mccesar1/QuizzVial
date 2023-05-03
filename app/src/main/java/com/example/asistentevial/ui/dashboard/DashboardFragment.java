@@ -29,17 +29,14 @@ public class DashboardFragment extends Fragment {
     private Button Button1;
     private Button Button2;
 
-
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         DashboardViewModel dashboardViewModel = new ViewModelProvider(this).get(DashboardViewModel.class);
 
         binding = FragmentDashboardBinding.inflate(inflater, container, false); // Inflate the layout for this fragment
         View root = binding.getRoot();
 
-
         Button1 = root.findViewById(R.id.button1);
         Button2 = root.findViewById(R.id.button2);
-
 
         Button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,8 +58,6 @@ public class DashboardFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
-
 
         return root;
     }
