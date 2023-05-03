@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_preguntas"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/preguntaTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="20sp"/>
+
+    <LinearLayout
+        android:id="@+id/opcionesLayout"
+        android:layout_width="378dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/preguntaTextView"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/opcion1Button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#84a59d"
+            android:onClick="opcionSeleccionada" />
+
+        <Button
+            android:id="@+id/opcion2Button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#84a59d"
+            android:onClick="opcionSeleccionada" />
+
+        <Button
+            android:id="@+id/opcion3Button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#84a59d"
+            android:onClick="opcionSeleccionada" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/siguienteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Siguiente"
+        android:backgroundTint="#e63946"
+        android:layout_below="@id/opcionesLayout"
+        android:layout_alignParentEnd="true"/>
+
+    <Button
+        android:id="@+id/btnSalir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@id/opcionesLayout"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="204dp"
+        android:backgroundTint="#e63946"
+        android:onClick="salir"
+        android:text="Salir" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/siguienteButton"
+        android:indeterminate="false"
+        android:max="10"
+        android:progress="0"
+
+        />
+
+    <TextView
+        android:id="@+id/tiempoTextView"
+        android:layout_width="252dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/progressBar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginEnd="70dp"
+        android:text="Tiempo: 20" />
+
+    <ImageView
+        android:id="@+id/gifImageView"
+        android:layout_width="313dp"
+        android:layout_height="176dp"
+        android:layout_below="@+id/tiempoTextView"
+        android:layout_alignParentStart="true"
+
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginBottom="16dp" />
+</RelativeLayout>

@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Asistente Vial</string>
+    <string name="title_home">Inicio</string>
+    <string name="title_dashboard">Temas</string>
+    <string name="title_notifications">Notificaciones</string>
+    <string name="title_subtemas">Subtemas</string>
+    <string name="title_preguntas">Preguntas</string>
+    <string name="title_temas">Temas</string>
+    <string name="title_home2">Inicio</string>
+
+    <string name="titulo_notificacion">Recordatorio de estudio</string>
+    <string name="mensaje_notificacion">Recuerda que debes estudiar hoy</string>
+
+
+    <string name="notification_channel_id">EGEL ISOFT PLUS</string>
+    <string name="notification_channel_name">EGEL ISOFT PLUS</string>
+    <string name="notification_channel_description">EGEL ISOFT PLUS</string>
+
+    //channel_name
+    <string name="channel_name">EGEL ISOFT PLUS</string>
+
+    //channel_description
+    <string name="channel_description">EGEL ISOFT PLUS</string>
+
+    //channel_id
+    <string name="channel_id">EGEL ISOFT PLUS</string>
+
+
+</resources>
