@@ -25,4 +25,10 @@
         android:name="com.example.asistentevial.ui.configuracion.ConfiguracionFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_requisitos"
+        android:name="com.example.asistentevial.ui.requisitos.RequisitosFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_requisitos" />
 </navigation>

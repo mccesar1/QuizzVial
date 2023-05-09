@@ -14,12 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.asistentevial.R;
 import com.example.asistentevial.databinding.FragmentDashboardBinding;
 import com.example.asistentevial.ui.Preguntas.PreguntasActivity;
-import com.example.asistentevial.ui.Subtemas.subtemas;
-import com.example.asistentevial.ui.Subtemas.subtemas2;
-import com.example.asistentevial.ui.Subtemas.subtemas3;
-import com.example.asistentevial.ui.Subtemas.subtemas4;
-import com.example.asistentevial.ui.Subtemas.subtemas5;
-import com.example.asistentevial.ui.Subtemas.subtemas6;
+
 import com.example.asistentevial.ui.requisitos.Requisitos;
 
 public class DashboardFragment extends Fragment {
@@ -54,7 +49,7 @@ public class DashboardFragment extends Fragment {
 
                 //abrir nueva actividad con varios botones para seleccionar el tipo de reporte
                 Intent intent = new Intent(getActivity(), Requisitos.class);
-                intent.putExtra("BOTON_PRESIONADO", 2);
+//                intent.putExtra("BOTON_PRESIONADO", 2);
                 startActivity(intent);
             }
         });

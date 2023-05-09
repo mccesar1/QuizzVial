@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
 import com.example.asistentevial.R;
@@ -18,6 +20,10 @@ import com.example.asistentevial.ui.Subtemas.subtemas3;
 import com.example.asistentevial.ui.Subtemas.subtemas4;
 import com.example.asistentevial.ui.Subtemas.subtemas5;
 import com.example.asistentevial.ui.Subtemas.subtemas6;
+import com.example.asistentevial.ui.dashboard.DashboardFragment;
+
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class FinalActivity extends AppCompatActivity {
     Button button1;
@@ -55,6 +61,7 @@ public class FinalActivity extends AppCompatActivity {
         }
 
 
+
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +69,7 @@ public class FinalActivity extends AppCompatActivity {
                 Intent intent = getNextActivityIntent(activityName); // Obtiene el Intent de la siguiente actividad
 
                 //destruye la actividad actual
-                finish();
+//                finish();
 
                 // Inicia la nueva actividad
                 startActivity(intent);
@@ -76,7 +83,8 @@ public class FinalActivity extends AppCompatActivity {
         return sharedPreferences.getString("ultimaActividad", "");
     }
 
-    // Obtiene el Intent de la siguiente actividad según el nombre de la actividad anterior
+
+//     Obtiene el Intent de la siguiente actividad según el nombre de la actividad anterior
     private Intent getNextActivityIntent(String activityName) {
         if (activityName.equals("preguntasActivity")) {
             return new Intent(FinalActivity.this, subtemas.class);
@@ -94,4 +102,16 @@ public class FinalActivity extends AppCompatActivity {
             return new Intent(FinalActivity.this, subtemas6.class);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        // Navegar hacia el fragmento DashboardFragment
+        NavController navController = Navigation.findNavController(FinalActivity.this, R.id.nav_host_fragment_activity_main);
+        navController.navigate(R.id.navigation_dashboard);
+        finish();
+    }
+
+
+
 }

@@ -21,7 +21,6 @@ public class Requisitos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.requisitos);
 
-
         // Establecer el modo de pantalla completa
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -29,7 +28,6 @@ public class Requisitos extends AppCompatActivity {
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
-
 
         btnVolver = findViewById(R.id.btnVolver);
         btnVolver.setOnClickListener(new View.OnClickListener() {
