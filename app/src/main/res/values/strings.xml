@@ -11,7 +11,6 @@
     <string name="titulo_notificacion">Recordatorio de estudio</string>
     <string name="mensaje_notificacion">Recuerda que debes estudiar hoy</string>
 
-
     <string name="notification_channel_id">EGEL ISOFT PLUS</string>
     <string name="notification_channel_name">EGEL ISOFT PLUS</string>
     <string name="notification_channel_description">EGEL ISOFT PLUS</string>
@@ -25,14 +24,12 @@
     //channel_id
     <string name="channel_id">EGEL ISOFT PLUS</string>
 
-
-    <string name="requisitos">Agendar cita por telefono o en educacion vial
-Realizar curso de manejo y examen teórico-práctico
-Acta de nacimiento
-Comprobante de domicilio a su nombre no mayor a tres meses (agua, luz, telefono, fijo, gas o predial).
-Encaso de no contar con recibo a su nombre, anexar a este; edo. de cuenta bancario, tienda departamental a nombre del interesado
-Identificación oficial con fotrografía (INE, pasaporte mexicano vigente, cartilla militar(no mayor a 5 años); menores de edad: tener 16 añoscumplidos, credencial escolar vigente o pasaporte mexicano vigente acompañado de padre o tutor legal con identificación oficial
-Traer lapiz, borrador y comprobante de pago del curso</string>
-
+    <string name="requisitos">Agendar cita por telefono o en educacion vial</string>
+    <string name="requisitos2">Realizar curso de manejo y examen teórico-práctico</string>
+    <string name="requisitos3">Acta de nacimiento</string>
+    <string name="requisitos4">Comprobante de domicilio a su nombre no mayor a tres meses (agua, luz, telefono, fijo, gas o predial).</string>
+    <string name="requisitos5">Encaso de no contar con recibo a su nombre, anexar a este; edo. de cuenta bancario, tienda departamental a nombre del interesado</string>
+    <string name="requisitos6">Identificación oficial con fotrografía (INE, pasaporte mexicano vigente, cartilla militar(no mayor a 5 años); menores de edad: tener 16 añoscumplidos, credencial escolar vigente o pasaporte mexicano vigente acompañado de padre o tutor legal con identificación oficial</string>
+    <string name="requisitos7">Traer lapiz, borrador y comprobante de pago del curso</string>
 
 </resources>
