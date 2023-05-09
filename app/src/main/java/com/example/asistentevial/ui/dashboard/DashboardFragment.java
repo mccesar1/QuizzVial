@@ -6,21 +6,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-
 import com.example.asistentevial.R;
 import com.example.asistentevial.databinding.FragmentDashboardBinding;
 import com.example.asistentevial.ui.Preguntas.PreguntasActivity;
-
 import com.example.asistentevial.ui.requisitos.Requisitos;
 
 public class DashboardFragment extends Fragment {
 
     private FragmentDashboardBinding binding;
-
     private Button Button1;
     private Button Button2;
 
@@ -53,7 +49,6 @@ public class DashboardFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
         return root;
     }
 
