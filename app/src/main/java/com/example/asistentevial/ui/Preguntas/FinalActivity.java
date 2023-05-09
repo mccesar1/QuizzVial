@@ -33,7 +33,6 @@ public class FinalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.finalscreen);
 
-
         // Establecer el modo de pantalla completa
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -47,7 +46,6 @@ public class FinalActivity extends AppCompatActivity {
         textView = findViewById(R.id.puntuacionTextView);
         double puntuacion = getIntent().getDoubleExtra("puntuacion", 0.0);
 
-
         textView.setText("Tu puntuación es: " + puntuacion);
 
         if (puntuacion >= 3) {
@@ -60,19 +58,16 @@ public class FinalActivity extends AppCompatActivity {
             Glide.with(this).load(R.raw.my_gif).into(gifImageView);
         }
 
-
-
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String activityName = getActivityName(); // Obtiene el nombre de la actividad anterior
-                Intent intent = getNextActivityIntent(activityName); // Obtiene el Intent de la siguiente actividad
+//                String activityName = getActivityName(); // Obtiene el nombre de la actividad anterior
+//                Intent intent = getNextActivityIntent(activityName); // Obtiene el Intent de la siguiente actividad
 
                 //destruye la actividad actual
-//                finish();
-
+                finish();
                 // Inicia la nueva actividad
-                startActivity(intent);
+//                startActivity(intent);
             }
         });
     }
@@ -82,7 +77,6 @@ public class FinalActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
         return sharedPreferences.getString("ultimaActividad", "");
     }
-
 
 //     Obtiene el Intent de la siguiente actividad según el nombre de la actividad anterior
     private Intent getNextActivityIntent(String activityName) {
