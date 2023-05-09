@@ -26,7 +26,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
-            android:backgroundTint="#84a59d"
+            android:textColor="@color/black"
+            android:backgroundTint="#A8DADC"
             android:onClick="opcionSeleccionada" />
 
         <Button
@@ -34,7 +35,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
-            android:backgroundTint="#84a59d"
+            android:textColor="@color/black"
+            android:backgroundTint="#A8DADC"
             android:onClick="opcionSeleccionada" />
 
         <Button
@@ -42,7 +44,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
-            android:backgroundTint="#84a59d"
+            android:backgroundTint="#A8DADC"
+            android:textColor="@color/black"
             android:onClick="opcionSeleccionada" />
     </LinearLayout>
 
