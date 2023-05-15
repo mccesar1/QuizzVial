@@ -295,7 +295,7 @@ public class PreguntasActivity2 extends AppCompatActivity {
         //progres bar
         progressBar.setProgress(preguntaActual + 1);
         preguntaActual++;
-        if (preguntaActual < preguntas.length) {
+        if (preguntaActual < 5) {
             mostrarPregunta(preguntaActual);
         } else {
             countDownTimer.cancel();
