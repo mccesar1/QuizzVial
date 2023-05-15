@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.asistentevial.R;
 import com.example.asistentevial.databinding.FragmentDashboardBinding;
 import com.example.asistentevial.ui.Preguntas.PreguntasActivity;
+import com.example.asistentevial.ui.Preguntas.PreguntasActivity2;
 import com.example.asistentevial.ui.requisitos.Requisitos;
 import com.example.asistentevial.ui.senales.SenalesActivity;
 
@@ -20,7 +21,9 @@ public class DashboardFragment extends Fragment {
     private FragmentDashboardBinding binding;
     private Button Button1;
     private Button Button2;
+    private Button Button3;
     private Button btnSenales;
+    private Button btnPrecios;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         DashboardViewModel dashboardViewModel = new ViewModelProvider(this).get(DashboardViewModel.class);
@@ -28,7 +31,9 @@ public class DashboardFragment extends Fragment {
         View root = binding.getRoot();
         Button1 = root.findViewById(R.id.button1);
         Button2 = root.findViewById(R.id.button2);
+        Button3 = root.findViewById(R.id.button3);
         btnSenales = root.findViewById(R.id.btnSenales);
+        btnPrecios = root.findViewById(R.id.btnPrecios);
 
         Button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +55,16 @@ public class DashboardFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        Button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //abrir nueva actividad con varios botones para seleccionar el tipo de reporte
+                Intent intent = new Intent(getActivity(), PreguntasActivity2.class);
+                intent.putExtra("BOTON_PRESIONADO", 2);
+                startActivity(intent);
+            }
+        });
 
         btnSenales.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +72,17 @@ public class DashboardFragment extends Fragment {
 
                 //abrir nueva actividad con varios botones para seleccionar el tipo de reporte
                 Intent intent = new Intent(getActivity(), SenalesActivity.class);
+
+                startActivity(intent);
+            }
+        });
+
+        btnPrecios.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //abrir nueva actividad con varios botones para seleccionar el tipo de reporte
+                Intent intent = new Intent(getActivity(), PreguntasActivity.class);
 
                 startActivity(intent);
             }

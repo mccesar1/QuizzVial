@@ -34,7 +34,6 @@ public class PreciosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //cerrar la actividad actual
-
                 // Navegar hacia el fragmento DashboardFragment
                 NavController navController = Navigation.findNavController(PreciosActivity.this, R.id.nav_host_fragment_activity_main);
                 navController.navigate(R.id.navigation_dashboard);
