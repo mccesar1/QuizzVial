@@ -128,10 +128,8 @@ public class PreguntasActivity2 extends AppCompatActivity {
             listaIndicesPreguntas.add(i);
         }
         Collections.shuffle(listaIndicesPreguntas);
-
         // Muestra la primera pregunta
         mostrarPregunta(preguntaActual);
-
 
     }
 
@@ -139,7 +137,6 @@ public class PreguntasActivity2 extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         countDownTimer.cancel();
-
         finish(); // Destruye la actividad actual (ActivityB) y regresa a la anterior (ActivityA)
     }
 
@@ -291,8 +288,7 @@ public class PreguntasActivity2 extends AppCompatActivity {
     public void mostrarSiguientePregunta (View view,double puntuacion){
 
         puntuacionActual = puntuacion;
-        // Muestra la siguiente pregunta o finaliza la actividad
-        //progres bar
+
         progressBar.setProgress(preguntaActual + 1);
         preguntaActual++;
         if (preguntaActual < 5) {
@@ -335,3 +331,4 @@ public class PreguntasActivity2 extends AppCompatActivity {
         }.start();
     }
 }
+

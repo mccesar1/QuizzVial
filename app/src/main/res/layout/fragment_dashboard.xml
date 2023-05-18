@@ -42,7 +42,7 @@
                 android:onClick="buttonClick"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                android:drawableLeft="@drawable/subtopic"
+                android:drawableLeft="@drawable/icsubtema"
                 android:textSize="18dp"
                 android:backgroundTint="#2271b3"
                 android:text="Examen corto" />
@@ -58,7 +58,7 @@
                 android:onClick="buttonClick"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                android:drawableLeft="@drawable/subtopic"
+                android:drawableLeft="@drawable/icsubtema"
                 android:textSize="18dp"
                 android:backgroundTint="#2271b3"
                 android:text="Examen completo" />
