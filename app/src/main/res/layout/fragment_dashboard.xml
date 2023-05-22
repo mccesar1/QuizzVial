@@ -26,7 +26,7 @@
                 android:onClick="buttonClick"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                android:drawableLeft="@drawable/subtopic"
+                android:drawableLeft="@drawable/l4"
                 android:textSize="18dp"
                 android:backgroundTint="#2271b3"
                 android:text="Señales de transito" />
@@ -66,7 +66,7 @@
             <Button
                 android:id="@+id/button2"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="match_parent"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="5dp"
@@ -74,7 +74,7 @@
                 android:onClick="buttonClick"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                android:drawableLeft="@drawable/subtopic"
+                android:drawableLeft="@drawable/req"
                 android:textSize="18dp"
                 android:backgroundTint="#2271b3"
                 android:text="Requisitos para tramitar las licencia de conducir" />
@@ -106,7 +106,7 @@
                 android:onClick="buttonClick"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                android:drawableLeft="@drawable/subtopic"
+                android:drawableLeft="@drawable/price"
                 android:textSize="18dp"
                 android:backgroundTint="#2271b3"
                 android:text="Precios Licencia" />

@@ -15,6 +15,7 @@ import android.widget.Button;
 import com.example.asistentevial.R;
 
 import com.example.asistentevial.ui.Preguntas.PreguntasActivity3;
+import com.example.asistentevial.ui.senales.SenalesActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
@@ -22,8 +23,7 @@ public class subtemas3 extends AppCompatActivity {
     Button button1;
     Button button2;
     Button button3;
-    Button button4;
-    Button button5;
+
     Button btnVolver;
 
     private BottomNavigationView bottomNavigationView;
@@ -48,8 +48,7 @@ public class subtemas3 extends AppCompatActivity {
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
-        button4 = findViewById(R.id.button4);
-        button5 = findViewById(R.id.button5);
+
         btnVolver = findViewById(R.id.btnVolver);
 
 
@@ -71,10 +70,11 @@ public class subtemas3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Crea un intent para abrir la nueva actividad
-                Intent intent = new Intent(subtemas3.this, PreguntasActivity3.class);
+                Intent intent = new Intent(subtemas3.this, SenalesActivity.class);
 
                 // Agrega un identificador al Intent para indicar que se presionó el botón 1
                 intent.putExtra("BOTON_PRESIONADO", 1);
+
 
                 // Inicia la nueva actividad
                 finish();
@@ -85,7 +85,7 @@ public class subtemas3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Crea un intent para abrir la nueva actividad
-                Intent intent = new Intent(subtemas3.this, PreguntasActivity3.class);
+                Intent intent = new Intent(subtemas3.this, SenalesActivity.class);
 
                 // Agrega un identificador al Intent para indicar que se presionó el botón 2
                 intent.putExtra("BOTON_PRESIONADO", 2);
@@ -99,7 +99,7 @@ public class subtemas3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Crea un intent para abrir la nueva actividad
-                Intent intent = new Intent(subtemas3.this, PreguntasActivity3.class);
+                Intent intent = new Intent(subtemas3.this, SenalesActivity.class);
 
                 // Agrega un identificador al Intent para indicar que se presionó el botón 3
                 intent.putExtra("BOTON_PRESIONADO", 3);
@@ -109,34 +109,7 @@ public class subtemas3 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        button4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Crea un intent para abrir la nueva actividad
-                Intent intent = new Intent(subtemas3.this, PreguntasActivity3.class);
 
-                // Agrega un identificador al Intent para indicar que se presionó el botón 4
-                intent.putExtra("BOTON_PRESIONADO", 4);
-
-                // Inicia la nueva actividad
-                finish();
-                startActivity(intent);
-            }
-        });
-        button5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Crea un intent para abrir la nueva actividad
-                Intent intent = new Intent(subtemas3.this, PreguntasActivity3.class);
-
-                // Agrega un identificador al Intent para indicar que se presionó el botón 5
-                intent.putExtra("BOTON_PRESIONADO", 5);
-
-                // Inicia la nueva actividad
-                finish();
-                startActivity(intent);
-            }
-        });
     }
 }
 

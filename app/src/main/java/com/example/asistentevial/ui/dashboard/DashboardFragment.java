@@ -13,6 +13,7 @@ import com.example.asistentevial.R;
 import com.example.asistentevial.databinding.FragmentDashboardBinding;
 import com.example.asistentevial.ui.Preguntas.PreguntasActivity;
 import com.example.asistentevial.ui.Preguntas.PreguntasActivity2;
+import com.example.asistentevial.ui.Subtemas.subtemas3;
 import com.example.asistentevial.ui.precios.PreciosActivity;
 import com.example.asistentevial.ui.requisitos.Requisitos;
 import com.example.asistentevial.ui.senales.SenalesActivity;
@@ -72,8 +73,9 @@ public class DashboardFragment extends Fragment {
             public void onClick(View view) {
 
                 //abrir nueva actividad con varios botones para seleccionar el tipo de reporte
-                Intent intent = new Intent(getActivity(), SenalesActivity.class);
-
+//                Intent intent = new Intent(getActivity(), SenalesActivity.class);
+                Intent intent = new Intent(getActivity(), subtemas3.class);
+                intent.putExtra("BOTON_PRESIONADO", 3);
                 startActivity(intent);
             }
         });
