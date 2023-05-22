@@ -54,7 +54,6 @@ public class PreguntasActivity extends AppCompatActivity {
     private List<Integer> listaIndicesPreguntas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        cronometro();
 
         //guardar cual fue la ultima actividad
         SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
@@ -403,10 +402,8 @@ public class PreguntasActivity extends AppCompatActivity {
         // Obtiene el índice de la pregunta a mostrar
         int indiceRealPregunta = listaIndicesPreguntas.get(indicePregunta);
 
-        // Muestra la pregunta y opciones correspondientes
-//        preguntaTextView.setText(preguntas[indicePregunta][0]);
         preguntaTextView.setText(preguntas[indiceRealPregunta][0]);
-//        List<String> opciones = Arrays.asList(preguntas[indicePregunta][1], preguntas[indicePregunta][2], preguntas[indicePregunta][3]);
+
         List<String> opciones = Arrays.asList(preguntas[indiceRealPregunta][1], preguntas[indiceRealPregunta][2], preguntas[indiceRealPregunta][3]);
         Collections.shuffle(opciones);
         opcion1Button.setText(opciones.get(0));
@@ -414,9 +411,7 @@ public class PreguntasActivity extends AppCompatActivity {
         opcion3Button.setText(opciones.get(2));
         retroalimentacion = preguntas[indiceRealPregunta][5];
         respuestaCorrecta = preguntas[indiceRealPregunta][4];
-//        opcion4Button.setText(opciones.get(3));
 
-        // Agrega onClickListeners a los botones de opción para manejar la selección de respuesta
         opcion1Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -435,8 +430,8 @@ public class PreguntasActivity extends AppCompatActivity {
                 verificarRespuesta(2, retroalimentacion, respuestaCorrecta);
             }
         });
-    }
 
+    }
     private void verificarRespuesta(int opcionSeleccionada, String retroalimentacion, String respuestaCorrecta) {
         // Detener el cronómetro
         countDownTimer.cancel();
@@ -537,13 +532,12 @@ public class PreguntasActivity extends AppCompatActivity {
         }
     }
     public void mostrarSiguientePregunta (View view,double puntuacion){
-
+        progressBar.setMax(25);
         puntuacionActual = puntuacion;
-
         //progres bar
         progressBar.setProgress(preguntaActual + 1);
         preguntaActual++;
-        if (preguntaActual < preguntas.length) {
+        if (preguntaActual < 25) {
             mostrarPregunta(preguntaActual);
         } else {
             countDownTimer.cancel();
@@ -551,14 +545,12 @@ public class PreguntasActivity extends AppCompatActivity {
             mostrarFinalActivity(null);
         }
     }
-
     public void mostrarFinalActivity (View view){
         countDownTimer.cancel();
         Intent intent = new Intent(PreguntasActivity.this, FinalActivity.class);
         intent.putExtra("puntuacion", puntuacionActual);
         startActivity(intent);
     }
-
     public void cronometro () {
         countDownTimer = new CountDownTimer(30000, 1000) {
             public void onTick(long millisUntilFinished) {
@@ -578,7 +570,6 @@ public class PreguntasActivity extends AppCompatActivity {
             }
         }.start();
     }
-
     private void inicializarVistas() {
         preguntaTextView = findViewById(R.id.preguntaTextView);
         opcion1Button = findViewById(R.id.opcion1Button);
@@ -589,13 +580,11 @@ public class PreguntasActivity extends AppCompatActivity {
         gifImageView = findViewById(R.id.gifImageView);
         siguienteButton = findViewById(R.id.siguienteButton);
     }
-
     private void establecerPantallaCompleta() {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(UI_OPTIONS);
     }
-
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -603,7 +592,6 @@ public class PreguntasActivity extends AppCompatActivity {
 
         finish(); // Destruye la actividad actual (ActivityB) y regresa a la anterior (ActivityA)
     }
-
     public void salir (View view){
         countDownTimer.cancel();
         finish();

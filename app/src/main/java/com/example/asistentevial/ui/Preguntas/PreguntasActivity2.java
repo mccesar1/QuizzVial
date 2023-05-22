@@ -34,8 +34,10 @@ public class PreguntasActivity2 extends AppCompatActivity {
 
     private TextView preguntaTextView;
     private Button opcion1Button, opcion2Button, opcion3Button;
+    private static final int UI_OPTIONS = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN;
     private ProgressBar progressBar;
     private CountDownTimer countDownTimer;
+    private ImageView gifImageView;
     private long tiempoRestante = TIEMPO_TOTAL;
     private static final long TIEMPO_TOTAL = 3000;
     private double puntuacionActual = 0;
@@ -50,7 +52,6 @@ public class PreguntasActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
         //guardar cual fue la ultima actividad
         SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
@@ -60,16 +61,15 @@ public class PreguntasActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.preguntas);
 
-// Establecer el modo de pantalla completa
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        establecerPantallaCompleta();
+        inicializarVistas();
 
         // Ocultar la barra de navegación
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
 
-        //boton siguiente
-        siguienteButton = findViewById(R.id.siguienteButton);
+
         siguienteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,15 +77,7 @@ public class PreguntasActivity2 extends AppCompatActivity {
             }
         });
 
-        preguntaTextView = findViewById(R.id.preguntaTextView);
-        opcion1Button = findViewById(R.id.opcion1Button);
-        opcion2Button = findViewById(R.id.opcion2Button);
-        opcion3Button = findViewById(R.id.opcion3Button);
-        progressBar = findViewById(R.id.progressBar);
 
-        //cronometro
-        tiempoTextView = findViewById(R.id.tiempoTextView);
-        ImageView gifImageView = findViewById(R.id.gifImageView);
         Glide.with(this).load(R.raw.timer).into(gifImageView);
 
         // Lee el identificador del botón presionado del Intent
@@ -103,24 +95,7 @@ public class PreguntasActivity2 extends AppCompatActivity {
                         {"2Pregunta 5 del botón 1", "Opción 1", "Opción 2", "Opción 3", "Opción 3", "retroalimentacion"}
                 };
                 break;
-            case 2:
-                preguntas = new String[][]{
-                        {"2Pregunta 1 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 2", "retroalimentacion"},
-                        {"2Pregunta 2 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 3", "retroalimentacion"},
-                        {"2Pregunta 3 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 1", "retroalimentacion"},
-                        {"2Pregunta 4 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 2", "retroalimentacion"},
-                        {"2Pregunta 5 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 3", "retroalimentacion"}
-                };
-                break;
-            case 3:
-                preguntas = new String[][]{
-                        {"2Pregunta 1 del botón 3", "Opción 1", "Opción 2", "Opción 3", "Opción 2", "retroalimentacion"},
-                        {"2Pregunta 2 del botón 3", "Opción 1", "Opción 2", "Opción 3", "Opción 3", "retroalimentacion"},
-                        {"2Pregunta 3 del botón 3", "Opción 1", "Opción 2", "Opción 3", "Opción 1", "retroalimentacion"},
-                        {"2Pregunta 4 del botón 3", "Opción 1", "Opción 2", "Opción 3", "Opción 2", "retroalimentacion"},
-                        {"2Pregunta 5 del botón 3", "Opción 1", "Opción 2", "Opción 3", "Opción 3", "retroalimentacion"}
-                };
-                break;
+
         }
         // Inicializa la lista de índices de preguntas y la mezcla
         listaIndicesPreguntas = new ArrayList<>();
@@ -132,15 +107,21 @@ public class PreguntasActivity2 extends AppCompatActivity {
         mostrarPregunta(preguntaActual);
 
     }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        countDownTimer.cancel();
-        finish(); // Destruye la actividad actual (ActivityB) y regresa a la anterior (ActivityA)
+    private void inicializarVistas() {
+        preguntaTextView = findViewById(R.id.preguntaTextView);
+        opcion1Button = findViewById(R.id.opcion1Button);
+        opcion2Button = findViewById(R.id.opcion2Button);
+        opcion3Button = findViewById(R.id.opcion3Button);
+        progressBar = findViewById(R.id.progressBar);
+        tiempoTextView = findViewById(R.id.tiempoTextView);
+        gifImageView = findViewById(R.id.gifImageView);
+        siguienteButton = findViewById(R.id.siguienteButton);
     }
-
-
+    private void establecerPantallaCompleta() {
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(UI_OPTIONS);
+    }
     private void mostrarPregunta(int indicePregunta) {
         cronometro();
         // Obtiene el índice de la pregunta a mostrar
@@ -178,9 +159,8 @@ public class PreguntasActivity2 extends AppCompatActivity {
                 verificarRespuesta(2);
             }
         });
-        cronometro();
-    }
 
+    }
     private void verificarRespuesta(int opcionSeleccionada) {
         // Detener el cronómetro
         countDownTimer.cancel();
@@ -286,8 +266,9 @@ public class PreguntasActivity2 extends AppCompatActivity {
         }
     }
     public void mostrarSiguientePregunta (View view,double puntuacion){
-
+        progressBar.setMax(5);
         puntuacionActual = puntuacion;
+        //actualizar el valor maximo de la barra de progreso
 
         progressBar.setProgress(preguntaActual + 1);
         preguntaActual++;
@@ -299,18 +280,22 @@ public class PreguntasActivity2 extends AppCompatActivity {
             mostrarFinalActivity(null);
         }
     }
-
     public void mostrarFinalActivity (View view){
+        countDownTimer.cancel();
         Intent intent = new Intent(PreguntasActivity2.this, FinalActivity.class);
         intent.putExtra("puntuacion", puntuacionActual);
         startActivity(intent);
     }
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        countDownTimer.cancel();
+        finish(); // Destruye la actividad actual (ActivityB) y regresa a la anterior (ActivityA)
+    }
     public void salir (View view){
         countDownTimer.cancel();
         finish();
     }
-
     public void cronometro () {
         countDownTimer = new CountDownTimer(20000, 1000) {
             public void onTick(long millisUntilFinished) {
