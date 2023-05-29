@@ -46,6 +46,9 @@ public class PreguntasActivity2 extends AppCompatActivity {
     private int preguntaActual = 0;
     private TextView tiempoTextView;
     private Button siguienteButton;
+    private   String retroalimentacion;
+    private   String respuestaCorrecta;
+    private int tipo;
 
     // Lista de índices de preguntas para mostrar en un orden aleatorio
     private List<Integer> listaIndicesPreguntas;
@@ -73,7 +76,7 @@ public class PreguntasActivity2 extends AppCompatActivity {
         siguienteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                verificarRespuesta(3);
+                verificarRespuesta(3,retroalimentacion, respuestaCorrecta );
             }
         });
 
@@ -87,6 +90,15 @@ public class PreguntasActivity2 extends AppCompatActivity {
         // Elige las preguntas correspondientes según el botón presionado
         switch (botonPresionado) {
             case 1:
+                preguntas = new String[][]{
+                        {"2Pregunta 1 del botón 3", "Opción 1", "Opción 2", "Opción 3", "Opción 2", "retroalimentacion"},
+                        {"2Pregunta 2 del botón 3", "Opción 1", "Opción 2", "Opción 3", "Opción 3", "retroalimentacion"},
+                        {"2Pregunta 3 del botón 3", "Opción 1", "Opción 2", "Opción 3", "Opción 1", "retroalimentacion"},
+                        {"2Pregunta 4 del botón 3", "Opción 1", "Opción 2", "Opción 3", "Opción 2", "retroalimentacion"},
+                        {"2Pregunta 5 del botón 3", "Opción 1", "Opción 2", "Opción 3", "Opción 3", "retroalimentacion"}
+                };
+                break;
+            case 2:
                 preguntas = new String[][]{
                         {"¿Cuánto alcohol se debe tener para considerar que se maneja en estado de ebriedad?",
                                 "0.05 gramos por litro de sangre",
@@ -251,11 +263,11 @@ public class PreguntasActivity2 extends AppCompatActivity {
                                 "Respuesta correcta: Nunca se permite detenerse en un cruce peatonal"},
 
                         { "¿Cuál es el significado de una señal de tránsito triangular con borde rojo?",
-                            "Advertencia de peligro",
-                            "Prohibición",
-                            "Indicación de dirección",
                                 "Advertencia de peligro",
-                            "Respuesta correcta: Advertencia de peligro"},
+                                "Prohibición",
+                                "Indicación de dirección",
+                                "Advertencia de peligro",
+                                "Respuesta correcta: Advertencia de peligro"},
 
                         {"¿Qué distancia debo de llevar del vehículo que circula delante de mí?",
                                 "30 metros",
@@ -270,27 +282,13 @@ public class PreguntasActivity2 extends AppCompatActivity {
                                 "De 6:00 am a 20:00 horas",
                                 "De 6:00 am a 22:00 horas",
                                 "Respuesta correcta: De 6:00 am a 22:00 horas"},
-                };
-                break;
-            case 2:
-                preguntas = new String[][]{
-                              {"Pregunta 1 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 2", "retroalimentacion"},
-                        {"Pregunta 2 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 3", "retroalimentacion"},
-                        {"Pregunta 3 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 1", "retroalimentacion"},
-                        {"Pregunta 4 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 2", "retroalimentacion"},
-                        {"Pregunta 5 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 3", "retroalimentacion"},
-                        {"Pregunta 6 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 1", "retroalimentacion"},
-                        {"Pregunta 7 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 2", "retroalimentacion"},
-                        {"Pregunta 8 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 3", "retroalimentacion"},
-                        {"Pregunta 9 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 1", "retroalimentacion"},
-                        {"Pregunta 10 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 2", "retroalimentacion"},
 
                 };
                 break;
             case 3:
                 preguntas = new String[][]{
-                        {"2Pregunta 1 del botón 3", "Opción 1", "Opción 2", "Opción 3", "Opción 2", "retroalimentacion"},
-                        {"2Pregunta 2 del botón 3", "Opción 1", "Opción 2", "Opción 3", "Opción 3", "retroalimentacion"},
+                        {"3Pregunta 1 del botón 3", "Opción 1", "Opción 2", "Opción 3", "Opción 2", "retroalimentacion"},
+                        {"3Pregunta 2 del botón 3", "Opción 1", "Opción 2", "Opción 3", "Opción 3", "retroalimentacion"},
                         {"2Pregunta 3 del botón 3", "Opción 1", "Opción 2", "Opción 3", "Opción 1", "retroalimentacion"},
                         {"2Pregunta 4 del botón 3", "Opción 1", "Opción 2", "Opción 3", "Opción 2", "retroalimentacion"},
                         {"2Pregunta 5 del botón 3", "Opción 1", "Opción 2", "Opción 3", "Opción 3", "retroalimentacion"}
@@ -305,6 +303,7 @@ public class PreguntasActivity2 extends AppCompatActivity {
         Collections.shuffle(listaIndicesPreguntas);
         // Muestra la primera pregunta
         mostrarPregunta(preguntaActual);
+
 
     }
     private void inicializarVistas() {
@@ -324,52 +323,45 @@ public class PreguntasActivity2 extends AppCompatActivity {
     }
     private void mostrarPregunta(int indicePregunta) {
         cronometro();
+
         // Obtiene el índice de la pregunta a mostrar
         int indiceRealPregunta = listaIndicesPreguntas.get(indicePregunta);
 
-        // Muestra la pregunta y opciones correspondientes
-//        preguntaTextView.setText(preguntas[indicePregunta][0]);
         preguntaTextView.setText(preguntas[indiceRealPregunta][0]);
-//        List<String> opciones = Arrays.asList(preguntas[indicePregunta][1], preguntas[indicePregunta][2], preguntas[indicePregunta][3]);
+
         List<String> opciones = Arrays.asList(preguntas[indiceRealPregunta][1], preguntas[indiceRealPregunta][2], preguntas[indiceRealPregunta][3]);
         Collections.shuffle(opciones);
         opcion1Button.setText(opciones.get(0));
         opcion2Button.setText(opciones.get(1));
         opcion3Button.setText(opciones.get(2));
+        retroalimentacion = preguntas[indiceRealPregunta][5];
+        respuestaCorrecta = preguntas[indiceRealPregunta][4];
 
-        // Agrega onClickListeners a los botones de opción para manejar la selección de respuesta
         opcion1Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                verificarRespuesta(0);
+                verificarRespuesta(0, retroalimentacion, respuestaCorrecta);
             }
         });
         opcion2Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                verificarRespuesta(1);
+                verificarRespuesta(1, retroalimentacion, respuestaCorrecta);
             }
         });
         opcion3Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                verificarRespuesta(2);
+                verificarRespuesta(2, retroalimentacion, respuestaCorrecta);
             }
         });
 
     }
-    private void verificarRespuesta(int opcionSeleccionada) {
+    private void verificarRespuesta(int opcionSeleccionada, String retroalimentacion, String respuestaCorrecta) {
         // Detener el cronómetro
         countDownTimer.cancel();
 
-        // Verifica si la respuesta seleccionada es correcta
-        String respuestaCorrecta = preguntas[preguntaActual][4];
-        String retroalimentacion = preguntas[preguntaActual][5];
-
-      if (opcionSeleccionada == 0 && opcion1Button.getText().equals(respuestaCorrecta)) {
+        if (opcionSeleccionada == 0 && opcion1Button.getText().equals(respuestaCorrecta)) {
 
             BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(PreguntasActivity2.this);
             bottomSheetDialog.setContentView(R.layout.bottom_sheet);
@@ -392,7 +384,6 @@ public class PreguntasActivity2 extends AppCompatActivity {
             //set background color of bottom sheet
             LinearLayout bottomSheetLayout = bottomSheetDialog.findViewById(R.id.bottom_sheet);
             bottomSheetLayout.setBackgroundResource(android.R.color.holo_green_light); // Establece el color de fondo a verde
-
 
         } else if (opcionSeleccionada == 1 && opcion2Button.getText().equals(respuestaCorrecta)) {
 
@@ -484,6 +475,8 @@ public class PreguntasActivity2 extends AppCompatActivity {
         countDownTimer.cancel();
         Intent intent = new Intent(PreguntasActivity2.this, FinalActivity.class);
         intent.putExtra("puntuacion", puntuacionActual);
+        tipo=2;
+        intent.putExtra("tipo", tipo);
         startActivity(intent);
     }
     @Override
@@ -511,7 +504,7 @@ public class PreguntasActivity2 extends AppCompatActivity {
                     // Vibra el teléfono con el efecto creado
                     vibrator.vibrate(vibrationEffect);
                 }
-                verificarRespuesta(-1); // indica que no se seleccionó ninguna respuesta
+                verificarRespuesta(-1, retroalimentacion, respuestaCorrecta); // indica que no se seleccionó ninguna respuesta
             }
         }.start();
     }

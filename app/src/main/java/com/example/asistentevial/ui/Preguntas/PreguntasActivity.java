@@ -49,6 +49,7 @@ public class PreguntasActivity extends AppCompatActivity {
     private Button siguienteButton;
     private   String retroalimentacion;
     private   String respuestaCorrecta;
+    private int tipo;
 
     // Lista de índices de preguntas para mostrar en un orden aleatorio
     private List<Integer> listaIndicesPreguntas;
@@ -272,16 +273,11 @@ public class PreguntasActivity extends AppCompatActivity {
                 break;
             case 2:
                 preguntas = new String[][]{
-                        {"Pregunta 1 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 2", "retroalimentacion"},
-                        {"Pregunta 2 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 3", "retroalimentacion"},
-                        {"Pregunta 3 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 1", "retroalimentacion"},
-                        {"Pregunta 4 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 2", "retroalimentacion"},
-                        {"Pregunta 5 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 3", "retroalimentacion"},
-                        {"Pregunta 6 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 1", "retroalimentacion"},
-                        {"Pregunta 7 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 2", "retroalimentacion"},
-                        {"Pregunta 8 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 3", "retroalimentacion"},
-                        {"Pregunta 9 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 1", "retroalimentacion"},
-                        {"Pregunta 10 del botón 2", "Opción 1", "Opción 2", "Opción 3", "Opción 2", "retroalimentacion"},
+                        {"2Pregunta 1 del botón 3", "Opción 1", "Opción 2", "Opción 3", "Opción 2", "retroalimentacion"},
+                        {"2Pregunta 2 del botón 3", "Opción 1", "Opción 2", "Opción 3", "Opción 3", "retroalimentacion"},
+                        {"2Pregunta 3 del botón 3", "Opción 1", "Opción 2", "Opción 3", "Opción 1", "retroalimentacion"},
+                        {"2Pregunta 4 del botón 3", "Opción 1", "Opción 2", "Opción 3", "Opción 2", "retroalimentacion"},
+                        {"2Pregunta 5 del botón 3", "Opción 1", "Opción 2", "Opción 3", "Opción 3", "retroalimentacion"}
                 };
                 break;
             case 3:
@@ -465,6 +461,8 @@ public class PreguntasActivity extends AppCompatActivity {
         countDownTimer.cancel();
         Intent intent = new Intent(PreguntasActivity.this, FinalActivity.class);
         intent.putExtra("puntuacion", puntuacionActual);
+        tipo=1;
+        intent.putExtra("tipo", tipo);
         startActivity(intent);
     }
     public void cronometro () {

@@ -35,14 +35,23 @@ public class FinalActivity extends AppCompatActivity {
         button1 = findViewById(R.id.buttonSalir);
         textView = findViewById(R.id.puntuacionTextView);
         double puntuacion = getIntent().getDoubleExtra("puntuacion", 0.0);
+        int tipo = getIntent().getIntExtra("tipo", 0);
 
         textView.setText("Tu puntuación es: " + puntuacion);
 
-        if (puntuacion >= 3) {
+        if (puntuacion >= 3 && tipo == 2) {
             textView.setText("¡Felicidades! Has aprobado \nTu puntuación es: " + puntuacion);
             ImageView gifImageView = findViewById(R.id.gifImageView);
             Glide.with(this).load(R.raw.my_gif2).into(gifImageView);
-        } else {
+        } else if (puntuacion < 3 && tipo == 2) {
+            textView.setText("¡Lo siento! Has reprobado\nTu puntuación es: " + puntuacion);
+            ImageView gifImageView = findViewById(R.id.gifImageView);
+            Glide.with(this).load(R.raw.my_gif).into(gifImageView);
+        }else if (puntuacion >= 15 && tipo == 1) {
+            textView.setText("¡Felicidades! Has aprobado \nTu puntuación es: " + puntuacion);
+            ImageView gifImageView = findViewById(R.id.gifImageView);
+            Glide.with(this).load(R.raw.my_gif2).into(gifImageView);
+        } else if (puntuacion < 15 && tipo == 1) {
             textView.setText("¡Lo siento! Has reprobado\nTu puntuación es: " + puntuacion);
             ImageView gifImageView = findViewById(R.id.gifImageView);
             Glide.with(this).load(R.raw.my_gif).into(gifImageView);
